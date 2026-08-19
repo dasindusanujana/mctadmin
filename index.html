@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#061638">
+<title>MCT Admin | Micro Central Technology</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#061638;--navy2:#081e4b;--blue:#91adff;--orange:#ff6840;--muted:#9aaed0;--line:rgba(150,178,230,.18)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{min-height:100vh;overflow-x:hidden;overflow-y:auto;font-family:"DM Sans",sans-serif;color:#fff;background:radial-gradient(circle at 82% 8%,rgba(35,81,174,.55),transparent 28%),radial-gradient(circle at 12% 80%,rgba(255,104,64,.08),transparent 25%),linear-gradient(135deg,#04132f 0%,#071b47 48%,#061638 100%)}
+a{text-decoration:none;color:inherit}
+
+::-webkit-scrollbar{
+  width:8px;
+}
+
+::-webkit-scrollbar-track{
+  background:#04132f;
+}
+
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(#274b91,#6f91e5);
+  border-radius:10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background:linear-gradient(#3d5d96,#91adff);
+}
+
+html{
+  scrollbar-width:thin;
+  scrollbar-color:#6f91e5 #04132f;
+}
+
+.bg{position:fixed;inset:0;pointer-events:none}.bg:before{content:"";position:absolute;inset:0;opacity:.35;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:60px 60px;mask-image:linear-gradient(to bottom,#000,transparent 88%)}.bg:after{content:"";position:absolute;width:430px;height:430px;right:-220px;top:80px;border-radius:50%;filter:blur(70px);background:rgba(78,124,236,.14)}
+header{position:relative;z-index:2;width:min(1180px,calc(100% - 44px));height:92px;margin:auto;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.03)}
+.brand{display:flex;align-items:center;gap:13px}.mark{width:31px;height:31px;padding:5px;display:grid;grid-template-columns:1fr 1fr;gap:3px;border:1px solid #7595d2;border-radius:7px;transform:rotate(45deg)}.mark i{background:#85a6ee;border-radius:1px}.mark i:nth-child(2){background:var(--orange)}.mark i:nth-child(3){background:#274b91}.mark i:nth-child(4){background:#fff}
+.brand-text{display:flex;flex-direction:column;line-height:1}.brand-text b{font:700 10px "Space Grotesk";letter-spacing:-.3px}.brand-text b span{font-weight:400}.brand-text small{margin-top:5px;font:6px "Space Grotesk";letter-spacing:2.2px;color:#90a6cd}
+.pill{padding:10px 14px;border:1px solid #3d5d96;border-radius:30px;color:#b9c8e3;font:9px "Space Grotesk";letter-spacing:1.6px}.pill:before{content:"";display:inline-block;width:6px;height:6px;margin-right:8px;border-radius:50%;background:#62d9a0;box-shadow:0 0 12px rgba(98,217,160,.8)}
+main{position:relative;z-index:1;min-height:calc(100vh - 92px);display:grid;place-items:center;padding:35px 20px 75px}.wrap{width:min(1040px,100%);display:grid;grid-template-columns:1.1fr .9fr;gap:70px;align-items:center}
+.kicker{display:flex;align-items:center;gap:13px;color:#8fa7d2;font:700 10px "Space Grotesk";letter-spacing:3px}.kicker span{width:22px;height:1px;background:var(--orange)}
+h1{margin-top:25px;font:600 clamp(55px,8vw,104px)/.87 "Space Grotesk";letter-spacing:-5px}h1 em{font-family:Georgia,serif;color:var(--blue);font-weight:400}
+.intro{max-width:610px;margin-top:28px;color:#a7b8d5;font-size:15px;line-height:1.8}
+.actions{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}.btn{min-height:50px;padding:0 20px;display:inline-flex;align-items:center;justify-content:space-between;gap:24px;border-radius:6px;font-size:12px;font-weight:700;transition:.25s}.primary{min-width:200px;background:linear-gradient(135deg,#ff6840,#d84d2c);border:1px solid rgba(255,104,64,.55);box-shadow:0 15px 38px rgba(255,104,64,.14)}.secondary{border:1px solid #3d5d96;color:#c1cee5;background:rgba(255,255,255,.025)}.btn:hover{transform:translateY(-3px)}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:44px}.feature{min-height:105px;padding:18px;border:1px solid rgba(155,183,232,.12);border-radius:8px;background:linear-gradient(145deg,rgba(255,255,255,.06),rgba(255,255,255,.02));backdrop-filter:blur(16px)}.feature span{display:block;color:#6c83ad;font:8px "Space Grotesk";letter-spacing:1.5px}.feature strong{display:block;margin-top:14px;font:14px "Space Grotesk"}.feature p{margin-top:6px;color:#647ba5;font-size:10px;line-height:1.5}
+.visual{position:relative;min-height:470px;display:grid;place-items:center}.ring{position:absolute;border:1px solid rgba(145,173,255,.14);border-radius:50%}.r1{width:430px;height:430px}.r2{width:310px;height:310px}.r3{width:200px;height:200px}
+.panel{position:relative;width:min(420px,100%);min-height:290px;padding:24px;border:1px solid rgba(155,183,232,.17);border-radius:11px;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));box-shadow:0 35px 110px rgba(0,0,0,.28),inset 0 1px rgba(255,255,255,.04);backdrop-filter:blur(24px);transform:rotate(-3deg);z-index:2}
+.top{display:flex;justify-content:space-between;color:#7187ae;font:8px "Space Grotesk";letter-spacing:1.7px}.dots{display:flex;gap:5px}.dots i{width:5px;height:5px;border-radius:50%;background:#435b8c}
+.panel h2{margin-top:38px;font:500 42px/.95 "Space Grotesk";letter-spacing:-2.5px}.panel h2 em{font-family:Georgia,serif;color:var(--blue);font-weight:400}.line{height:1px;margin:26px 0 20px;background:rgba(145,173,255,.12)}
+.metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px}.metric{padding:16px;border:1px solid rgba(145,173,255,.1);background:rgba(0,0,0,.1);border-radius:7px}.metric span{display:block;color:#6379a0;font-size:8px;letter-spacing:1.2px}.metric strong{display:block;margin-top:8px;font:25px "Space Grotesk"}
+.float{position:absolute;z-index:3;padding:15px 17px;border:1px solid rgba(155,183,232,.16);border-radius:8px;background:rgba(5,20,49,.84);backdrop-filter:blur(18px);box-shadow:0 20px 60px rgba(0,0,0,.22)}.float span{display:block;color:#7188b0;font-size:8px;letter-spacing:1.2px}.float strong{display:block;margin-top:7px;font:19px "Space Grotesk"}.growth{right:0;top:55px}.db{left:0;bottom:55px}
+footer{position:fixed;left:0;right:0;bottom:0;z-index:3;height:55px;display:flex;justify-content:center;align-items:center;color:#60769d;font-size:9px;letter-spacing:.7px;border-top:1px solid rgba(255,255,255,.05);background:rgba(4,16,40,.38);backdrop-filter:blur(14px)}
+@keyframes float{0%,100%{transform:translateY(0) rotate(-3deg)}50%{transform:translateY(-8px) rotate(-3deg)}}.panel{animation:float 6s ease-in-out infinite}
+@media(max-width:900px){body{overflow:auto}main{min-height:auto;padding:55px 18px 85px}.wrap{grid-template-columns:1fr;gap:35px}.visual{min-height:390px}.features{max-width:none}}
+@media(max-width:600px){header{width:calc(100% - 28px);height:78px}.pill{display:none}h1{font-size:52px;letter-spacing:-3px}.intro{font-size:13px}.actions{flex-direction:column}.btn{width:100%}.features{grid-template-columns:1fr}.feature{min-height:88px}.visual{min-height:340px}.r1{width:320px;height:320px}.r2{width:240px;height:240px}.r3{width:150px;height:150px}.panel{width:100%;transform:none}.panel{animation:none}.growth{right:-5px;top:8px}.db{left:-5px;bottom:8px}footer{font-size:8px}}
+</style>
+</head>
+
+<body>
+<div class="bg"></div>
+
+<header>
+  <a class="brand" href="https://mctofficial.pages.dev/">
+    <span class="mark"><i></i><i></i><i></i><i></i></span>
+    <span class="brand-text">
+      <b>MICRO<span>CENTRAL</span></b>
+      <small>TECHNOLOGY</small>
+    </span>
+  </a>
+  <div class="pill">ADMIN CONTROL CENTER</div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section>
+      <p class="kicker"><span></span> MICRO CENTRAL TECHNOLOGY · ADMIN</p>
+
+      <h1>
+        Control your
+        <br>
+        <em>digital hub.</em>
+      </h1>
+
+      <p class="intro">
+        Welcome to the Micro Central Technology Admin Center.
+        Manage Project Unit requests and your MCT digital systems
+        from one secure control point.
+      </p>
+
+      <div class="actions">
+        <a class="btn primary" href="https://mctofficial.pages.dev/project-admin">
+          <span>Open Admin Dashboard</span>
+          <b>↗</b>
+        </a>
+
+        <a class="btn secondary" href="https://mctofficial.pages.dev/">
+          <span>Back to MCT Website</span>
+          <b>↗</b>
+        </a>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <span>01 / PROJECTS</span>
+          <strong>Project Unit</strong>
+          <p>Review incoming project requests.</p>
+        </div>
+        <div class="feature">
+          <span>02 / DATA</span>
+          <strong>Firestore</strong>
+          <p>Connected project submission data.</p>
+        </div>
+        <div class="feature">
+          <span>03 / CONTROL</span>
+          <strong>Admin Access</strong>
+          <p>Secure dashboard management.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="visual">
+      <div class="ring r1"></div>
+      <div class="ring r2"></div>
+      <div class="ring r3"></div>
+
+      <div class="float growth">
+        <span>CONTROL CENTER</span>
+        <strong>LIVE ↗</strong>
+      </div>
+
+      <div class="panel">
+        <div class="top">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <span>MCT / ADMIN</span>
+          <span>SECURE</span>
+        </div>
+
+        <h2>
+          PROJECT
+          <br>
+          <em>REQUESTS.</em>
+        </h2>
+
+        <div class="line"></div>
+
+        <div class="metrics">
+          <div class="metric">
+            <span>PROJECTS</span>
+            <strong>LIVE</strong>
+          </div>
+          <div class="metric">
+            <span>DATABASE</span>
+            <strong>OK</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="float db">
+        <span>FIRESTORE</span>
+        <strong>CONNECTED</strong>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  © 2026 Micro Central Technology · Admin Control Center
+</footer>
+</body>
+</html>
